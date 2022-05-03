@@ -28,11 +28,11 @@ def leer_mensaje(socket):
     socket de cliente
     returns: bytes
     """
-    chunk = socket.recv(4096)
+    chunk = socket.recv(6096)
     mensaje = b''
     while not chunk.endswith(DELIMITADOR):
         mensaje += chunk
-        chunk = socket.recv(4096)
+        chunk = socket.recv(6096)
     mensaje += chunk
     return quitar_delimitador(mensaje)
 
